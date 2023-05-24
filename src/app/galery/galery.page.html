@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Produtos</ion-title>
+    <ion-chip slot="end"  [routerLink]="['/cart']">
+      <ion-icon name="cart"></ion-icon>
+      <ion-badge>{{ bd.carrinho.length }}</ion-badge>
+    </ion-chip>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let produto of bd.produtos">
+      <ion-grid [routerLink]="['/product', produto.codigo]">
+        <ion-row>
+          <ion-col>
+            <ion-avatar>
+              <img src={{produto.imagem}}>
+            </ion-avatar>
+          </ion-col>
+          <ion-col>
+            <ion-label class="titulo">{{produto.nome}}</ion-label>
+            <ion-label class="ingrediente">{{produto.ingredientes}}</ion-label>
+            <ion-label class="preco">R$ {{produto.preco}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
